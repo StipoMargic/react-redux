@@ -3,12 +3,12 @@ import VideoList from './VideoList';
 import VideoDetails from './VideoDetails';
 export default function App() {
 	return (
-		<div class="container">
-			<div class="row mt-5">
-				<div class="col">
+		<div className="container">
+			<div className="row mt-5">
+				<div className="col">
 					<VideoList />
 				</div>
-				<div class="col">
+				<div className="col">
 					<VideoDetails />
 				</div>
 			</div>

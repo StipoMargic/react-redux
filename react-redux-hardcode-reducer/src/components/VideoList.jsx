@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectVideo } from '../actions';
+import { selectVideo, fetchVideos } from '../actions';
 
 class VideoList extends Component {
+	componentDidMount() {
+		this.props.fetchVideos();
+	}
+
 	renderVideos = () => {
 		return this.props.videos.map(video => {
 			return (
-				<ul class="list-group ticketView">
-					<li class="list-group-item ticketView">
-						<span key={video.title} class="badge pull-left">
-							{video.rating}
+				<ul key={video.id}  className="list-group ticketView">
+					<li className="list-group-item ticketView">
+						<span className="badge pull-left">
+							{video.vote_average}
 						</span>
 						{video.title}
 						<button onClick={() => this.props.selectVideo(video)}>
@@ -26,10 +30,10 @@ class VideoList extends Component {
 }
 
 const mapStateToProps = state => {
-	return { videos: state.videos };
+		return { videos: state.videos };
 };
 
 export default connect(
 	mapStateToProps,
-	{ selectVideo },
+	{ selectVideo, fetchVideos },
 )(VideoList);

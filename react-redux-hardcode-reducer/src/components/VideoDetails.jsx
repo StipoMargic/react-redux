@@ -8,7 +8,7 @@ const VideoDetails = ({ video }) => {
   
   return <div>
     <p>Title:  {video.title}</p>
-    <p>Rating: {video.rating}</p>
+    <p>Rating: {video.vote_average}</p>
   </div>
 };
 

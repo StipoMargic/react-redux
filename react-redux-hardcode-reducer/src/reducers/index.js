@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
 
-export const videosReducer = () => {
-	return [
-		{ title: ' The Shawshank Redemption', rating: 9.2 },
-		{ title: ' The Godfather ', rating: 9.1 },
-		{ title: ' The Godfather: Part II', rating: 9 },
-		{ title: ' The Dark Knight ', rating: 9 },
-		{ title: ' 12 Angry Men ', rating: 8.9 },
-	];
+export const videosReducer = (state = [], action) => {
+	if (action.type === 'FETCH_VIDEOS') {
+		return action.payload;
+	}
+
+	return state;
 };
 
 export const selectedVideoReducer = (selectedVideo = null, action) => {
